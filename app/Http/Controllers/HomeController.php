@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //Send request to web service
+        $users = HTTP::get('https://jsonplaceholder.typicode.com/users');
+        //Convert response to array
+        $users = $users->json();
+        return view('home', compact('users'));
     }
 }

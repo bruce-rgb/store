@@ -15,6 +15,16 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    @foreach ($users as $user)
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item">{{ $user['name'] }}</li>
+                                <li class="list-group-item"></li>
+                                <li class="list-group-item"></li>
+                                <li class="list-group-item"></li>
+                            </ul>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
