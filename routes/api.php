@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/demo/sayhello','App\Http\Controllers\ApiController@SayHello');
+//Route::get('/demo/sayhello','App\Http\Controllers\ApiController@SayHello');
+Route::apiResource('products', 'App\Http\Controllers\ProductController');
