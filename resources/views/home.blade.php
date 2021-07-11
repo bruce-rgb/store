@@ -3,7 +3,7 @@
 @section('content')
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-8">Product Dashboard</h1>
+        <h1 class="display-8">Products Dashboard</h1>
         <div class="text-right">
             <a href="{{ route('create') }}" class="btn btn-success">Add new</a>
         </div>
@@ -28,12 +28,12 @@
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                         </div> --}}
                         <div class=""> {{--col-sm-6 col-6 text-right --}}
-                            <a href="{{--route('edit',$commerce->id )--}}" class="btn btn-primary btn-sm">Editar</a>
-                            <form action="{{--route('delete', $commerce->id)--}}" method="POST" class="d-inline">
+                            <a href="{{route('edit',$product->id )}}" class="btn btn-primary btn-sm">Edit</a>
+                            <form action="{{route('delete', $product->id)}}" method="POST" class="d-inline">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro que desea eliminar el comercio?');">
-                                    Eliminar
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro que desea eliminar el producto?');">
+                                    Delete
                                 </button>
                             </form>
                         </div>

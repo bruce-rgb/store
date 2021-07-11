@@ -76,12 +76,14 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('edit', compact('product'));
     }
 
     /**
@@ -99,11 +101,14 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function delete($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+
+        return back()->with('deleted','Eliminación exitosa');
     }
 }
